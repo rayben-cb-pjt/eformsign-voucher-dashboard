@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 클라우드 바우처 협회 영업 키트</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1><span class="highlight">2026 클라우드 바우처</span> 협회 영업 키트</h1>
+                    <p class="subtitle">브라우저 로컬 저장소에 안전하게 저장되며, 언제든 원본으로 복구가 가능합니다.</p>
+                </div>
+                <div class="header-status">
+                    <div class="status-text">
+                        <p class="status-label">데이터 저장 방식</p>
+                        <p class="status-value">브라우저 로컬 캐시 사용 중</p>
+                    </div>
+                    <div class="status-divider"></div>
+                    <div class="status-icon"><i class="fa-solid fa-hard-drive"></i></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quick Replace Section -->
+        <section class="quick-replace">
+            <div class="quick-replace-header">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>플레이스홀더 일괄 치환</span>
+            </div>
+            <div class="quick-replace-content">
+                <div class="input-group">
+                    <label for="association-name">협회명</label>
+                    <input type="text" id="association-name" placeholder="예: 한국소프트웨어산업협회">
+                    <button onclick="replaceAllPlaceholder('[협회명]', 'association-name')" class="btn-replace"
+                        aria-label="협회명 일괄 치환">
+                        <i class="fa-solid fa-arrows-rotate"></i> 적용
+                    </button>
+                </div>
+                <div class="input-group">
+                    <label for="담당자명">담당자명</label>
+                    <input type="text" id="담당자명" placeholder="예: 김철수 과장님">
+                    <button onclick="replaceAllPlaceholder('[담당자명]', '담당자명')" class="btn-replace"
+                        aria-label="담당자명 일괄 치환">
+                        <i class="fa-solid fa-arrows-rotate"></i> 적용
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <span class="toolbar-info">
+                    <i class="fa-solid fa-circle-info"></i> 수정 후 "저장" 버튼을 눌러 브라우저에 저장하세요
+                </span>
+            </div>
+            <div class="toolbar-right">
+                <button onclick="resetAllToDefault()" class="btn-toolbar btn-danger" aria-label="전체 초기화">
+                    <i class="fa-solid fa-rotate-left"></i> 전체 초기화
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+
+            <!-- Left Column -->
+            <div class="column">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-paper-plane icon-blue"></i> STEP 1. 협회 담당자 컨택용
+                </h2>
+                <p class="section-desc">영업 담당자가 협회 담당자에게 보내는 LMS/이메일 템플릿</p>
+
+                <!-- 1. Staff LMS -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">A. 첫 컨택 LMS</span>
+                        <div class="card-actions">
+                            <button onclick="resetToDefault('lms-staff')" class="btn-action btn-reset" title="원본으로 복구"
+                                aria-label="LMS 원본으로 복구">
+                                <i class="fa-solid fa-rotate-left"></i> 초기화
+                            </button>
+                            <button onclick="saveToLocal('lms-staff')" class="btn-action btn-save" aria-label="LMS 저장">
+                                <i class="fa-solid fa-floppy-disk"></i> 저장
+                            </button>
+                            <button onclick="copyToClipboard('lms-staff')" class="btn-action btn-copy"
+                                aria-label="LMS 복사">
+                                <i class="fa-regular fa-copy"></i> 복사
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="lms-staff" class="template-textarea" rows="14"
+                            aria-label="담당자용 LMS 템플릿"></textarea>
+                        <div class="char-count" id="lms-staff-count">0자</div>
+                    </div>
+                </div>
+
+                <!-- 2. Staff Email -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">B. 담당자용 공식 제안 메일</span>
+                        <div class="card-actions">
+                            <button onclick="resetToDefault('email-staff')" class="btn-action btn-reset" title="원본으로 복구"
+                                aria-label="이메일 원본으로 복구">
+                                <i class="fa-solid fa-rotate-left"></i> 초기화
+                            </button>
+                            <button onclick="saveToLocal('email-staff')" class="btn-action btn-save"
+                                aria-label="이메일 저장">
+                                <i class="fa-solid fa-floppy-disk"></i> 저장
+                            </button>
+                            <button onclick="copyToClipboard('email-staff')" class="btn-action btn-copy"
+                                aria-label="이메일 복사">
+                                <i class="fa-regular fa-copy"></i> 복사
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="email-staff" class="template-textarea" rows="18"
+                            aria-label="담당자용 이메일 템플릿"></textarea>
+                        <div class="char-count" id="email-staff-count">0자</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="column">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-gift icon-green"></i> STEP 2. 협회에 제공할 무상 지원 자료
+                </h2>
+                <p class="section-desc">협회가 회원사에 배포할 수 있는 원고 및 체크리스트 (영업 제안 시 무상 제공)</p>
+
+                <!-- 3. Member Board Post -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fa-solid fa-file-lines"></i> C. 배포용 표준 원고 (게시판/뉴스레터용)</span>
+                        <div class="card-actions">
+                            <button onclick="resetToDefault('board-member')" class="btn-action btn-reset"
+                                title="원본으로 복구" aria-label="게시판 공지문 원본으로 복구">
+                                <i class="fa-solid fa-rotate-left"></i> 초기화
+                            </button>
+                            <button onclick="saveToLocal('board-member')" class="btn-action btn-save"
+                                aria-label="게시판 공지문 저장">
+                                <i class="fa-solid fa-floppy-disk"></i> 저장
+                            </button>
+                            <button onclick="copyToClipboard('board-member')" class="btn-action btn-copy"
+                                aria-label="게시판 공지문 복사">
+                                <i class="fa-regular fa-copy"></i> 복사
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="board-member" class="template-textarea" rows="16"
+                            aria-label="회원사 게시판 공지문 템플릿"></textarea>
+                        <div class="char-count" id="board-member-count">0자</div>
+                    </div>
+                </div>
+
+                <!-- 4. Member Checklist -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fa-solid fa-clipboard-check"></i> D. 30초 자가진단표 (오신청
+                            방지용)</span>
+                        <div class="card-actions">
+                            <button onclick="resetToDefault('checklist')" class="btn-action btn-reset" title="원본으로 복구"
+                                aria-label="체크리스트 원본으로 복구">
+                                <i class="fa-solid fa-rotate-left"></i> 초기화
+                            </button>
+                            <button onclick="saveToLocal('checklist')" class="btn-action btn-save"
+                                aria-label="체크리스트 저장">
+                                <i class="fa-solid fa-floppy-disk"></i> 저장
+                            </button>
+                            <button onclick="copyToClipboard('checklist')" class="btn-action btn-copy"
+                                aria-label="체크리스트 복사">
+                                <i class="fa-regular fa-copy"></i> 복사
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="checklist" class="template-textarea" rows="12"
+                            aria-label="자가진단 체크리스트 템플릿"></textarea>
+                        <div class="char-count" id="checklist-count">0자</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast hidden" role="alert" aria-live="polite">
+            <i id="toast-icon" class="fa-solid fa-check"></i>
+            <span id="toast-message">클립보드에 복사되었습니다.</span>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 FORCS eformsign Sales Kit. Enhanced Version with Export/Import & Placeholder Replace.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
