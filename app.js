@@ -9,7 +9,7 @@ const STORAGE_KEY = 'eformsign_voucher_templates';
 const defaults = {
     'lms-staff': `[제목] 🔔 2월 공고 임박! 귀 협회 회원사를 위한 **'클라우드 바우처' 완벽 준비 패키지** (무상)
 
-안녕하십니까,
+안녕하십니까, 담당자님.
 대한민국 전자문서 1위 기업, (주)포시에스의
 **일 잘하는 프로들의 전자계약 '이폼사인(eformsign)'**입니다.
 
@@ -40,9 +40,9 @@ const defaults = {
 💬 1:1 채팅상담: eformsign.channel.io
 ─────────────────`,
 
-    'email-staff': `제목: 📢 [긴급] [협회명] 회원사, 2월 클라우드 바우처 **도입비 80% 지원** – 사전 준비 제안
+    'email-staff': `제목: 📢 [긴급] 귀 협회 회원사, 2월 클라우드 바우처 **도입비 80% 지원** – 사전 준비 제안
 
-안녕하십니까, [협회명] [담당자명] 님.
+안녕하십니까, 담당자님.
 
 대한민국 전자문서 1위 기업, (주)포시에스의
 **일 잘하는 프로들의 전자계약 '이폼사인(eformsign)'**입니다.
@@ -362,40 +362,7 @@ async function copyToClipboard(id) {
     }
 }
 
-// ===================================
-// Placeholder Replacement
-// ===================================
-function replaceAllPlaceholder(placeholder, inputId) {
-    const inputEl = document.getElementById(inputId);
-    const replacement = inputEl.value.trim();
 
-    if (!replacement) {
-        showToast('치환할 값을 입력해주세요.', 'error');
-        inputEl.focus();
-        return;
-    }
-
-    let totalReplaced = 0;
-
-    Object.keys(defaults).forEach(key => {
-        const textarea = document.getElementById(key);
-        if (textarea && textarea.value.includes(placeholder)) {
-            const before = textarea.value;
-            textarea.value = textarea.value.split(placeholder).join(replacement);
-            if (before !== textarea.value) {
-                totalReplaced++;
-                updateCharCount(key);
-                saveToLocal(key);
-            }
-        }
-    });
-
-    if (totalReplaced > 0) {
-        showToast(`${totalReplaced}개 템플릿에서 "${placeholder}"를 치환했습니다.`);
-    } else {
-        showToast(`"${placeholder}"를 찾을 수 없습니다.`, 'error');
-    }
-}
 
 // ===================================
 // Initialization
