@@ -252,7 +252,7 @@ function showToast(message, type = 'success') {
 // ===================================
 function updateCharCount(id) {
     const textarea = document.getElementById(id);
-    const countEl = document.getElementById(`${id} -count`);
+    const countEl = document.getElementById(`${id}-count`);
     if (textarea && countEl) {
         countEl.textContent = `${textarea.value.length} 자`;
     }
